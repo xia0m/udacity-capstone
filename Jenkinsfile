@@ -11,6 +11,13 @@ pipeline {
                 sh 'docker build --tag=hello-site .'
             }
         }
+        stage('Publish Docker Image') {
+            steps {
+                withDockerRegistry([credentialsId:'docker-hub',url:'']){
+                    sh 'docker push xia0m/static_website'
+                }
+            }
+        }
 
     }
 
