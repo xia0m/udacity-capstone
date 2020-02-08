@@ -22,6 +22,15 @@ pipeline {
                 }
             }
         }
+        stage('Deploy Hello-Site to AWS EKS'){
+            steps {
+                withAWS(region: 'us-west-2', credentials: 'aws'){
+                    sh 'aws eks --region us-west-2 update-kubeconfig --name EKS-iqwfLWjiW3NW'
+                    sh 'kubectl apply -f aws-auth-cm.yaml'
+                    sh 'kubectl apply -f Deploy/blue.yaml'
+                }
+            }
+        }
 
     }
 

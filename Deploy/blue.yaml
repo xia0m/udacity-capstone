@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Blue-Deployment
+  labels:
+    app: Blue-iteration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: Blue-iteration
+  template:
+    metadata:
+      labels:
+        app: Blue-iteration
+    spec:
+      containers:
+        - name: capstone
+          image: xia0m/hello-site:latest
+          ports:
+            - containerPort: 80
