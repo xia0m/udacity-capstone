@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build --tag=hello-site .'
+                sh 'docker build --tag=hello-site .'
             }
         }
 
