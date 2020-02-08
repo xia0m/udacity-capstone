@@ -8,9 +8,10 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --tag=static_website .'
+                sh './run_docker.sh'
             }
         }
+
     }
 
 }
