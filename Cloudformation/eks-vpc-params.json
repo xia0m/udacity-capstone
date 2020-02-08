@@ -1,4 +1,36 @@
 [{
-    "ParameterKey": "EnvironmentName",
-    "ParameterValue": "UdacityCapstoneProject"
-}]
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "UdacityCapstoneProject"
+    },
+    {
+        "ParameterKey": "VpcBlock",
+        "ParameterValue": "192.168.0.0/16"
+    }, {
+        "ParameterKey": "Subnet01Block",
+        "ParameterValue": "192.168.64.0/18"
+    }, {
+        "ParameterKey": "Subnet02Block",
+        "ParameterValue": "192.168.128.0/18"
+    }, {
+        "ParameterKey": "Subnet03Block",
+        "ParameterValue": "192.168.192.0/18"
+    }, {
+        "ParameterKey": "KeyName",
+        "ParameterValue": "capstone-eks"
+    },
+    {
+        "ParameterKey": "NodeInstanceType",
+        "ParameterValue": "t3.medium"
+    }, {
+        "ParameterKey": "NodeAutoScalingGroupDesiredCapacity",
+        "ParameterValue": "3"
+    },
+    {
+        "ParameterKey": "ClusterName",
+        "ParameterValue": "ekscluster"
+    },
+    {
+        "ParameterKey": "NodeGroupName",
+        "ParameterValue": "eks-group"
+    }
+]
