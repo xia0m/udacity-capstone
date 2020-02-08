@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = 'xia0m/static_website',
+        registry = 'xia0m/static_website'
         registryCredential = 'dockerhub'
     }
     agent any
