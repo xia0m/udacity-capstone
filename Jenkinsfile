@@ -28,7 +28,7 @@ pipeline {
                 withAWS(region: 'us-west-2', credentials: 'aws'){
                     sh 'aws --version'
                     sh 'aws eks --region us-west-2 update-kubeconfig --name EKS-yw98RNVzWIlC'
-                    sh 'kubectl create deployment happy-sitesss --image=xia0m/happy-site:latest'
+                    sh 'kubectl create deployment happy-sitessss --image=xia0m/happy-site:latest'
                     sh 'kubectl apply -f aws-auth-cm.yaml'
                     sh 'kubectl apply -f Deploy/Deployment.yaml'
                     sh 'kubectl get nodes'
@@ -41,7 +41,7 @@ pipeline {
                 withAWS(region: 'us-west-2', credentials: 'aws'){
                     sh "echo future version"
                     // sh 'kubectl set image deployment/happy-sites happy-sites=xia0m/happy-site:v2
-                    sh 'kubectl rollout status -w deployment/happy-sites'
+                    // sh 'kubectl rollout status -w deployment/happy-sites'
                 }
             }
         }
