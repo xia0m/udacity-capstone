@@ -41,7 +41,7 @@ pipeline {
                 withAWS(region: 'us-west-2', credentials: 'aws'){
                     sh "echo future version"
                     // sh 'kubectl set image deployment/happy-sites happy-sites=xia0m/happy-site:v2
-                    sh 'kubectl rollout status -w deployment/frontend'
+                    sh 'kubectl rollout status -w deployment/happy-sites'
                 }
             }
         }
