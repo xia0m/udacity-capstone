@@ -1,21 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blue-deploy
+  name: hello-world
   labels:
-    app: blue-iteration
+    app: hello-world
+  namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: blue-iteration
+      app: hello-world
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: blue-iteration
+        app: hello-world
     spec:
       containers:
-        - name: capstone
-          image: xia0m/hello-site:latest
+        - image: xia0m/happy-site:latest
+          imagePullPolicy: Always
+          name: hello-world
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+              protocol: TCP
