@@ -28,7 +28,7 @@ pipeline {
                 withAWS(region: 'us-west-2', credentials: 'aws'){
                     sh 'aws --version'
                     sh 'aws eks --region us-west-2 update-kubeconfig --name EKS-yw98RNVzWIlC'
-                    sh 'kubectl create deployment happy-sitess --image=xia0m/happy-site:latest'
+                    sh 'kubectl create deployment happy-sitesss --image=xia0m/happy-site:latest'
                     sh 'kubectl apply -f aws-auth-cm.yaml'
                     sh 'kubectl apply -f Deploy/Deployment.yaml'
                     sh 'kubectl get nodes'
