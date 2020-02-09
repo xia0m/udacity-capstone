@@ -30,9 +30,17 @@ pipeline {
                     sh 'aws eks --region us-west-2 update-kubeconfig --name EKS-yw98RNVzWIlC'
                     sh 'kubectl create deployment happy-site --image=xia0m/happy-site:latest'
                     sh 'kubectl apply -f aws-auth-cm.yaml'
-                    sh 'kubectl apply -f Deploy/blue.yaml'
+                    sh 'kubectl apply -f Deploy/Deployment.yaml'
                     sh 'kubectl get nodes'
                     sh 'kubectl get pods'
+                }
+            }
+        }
+        stage('Rolling Update'){
+            steps{
+                withAWS(region: 'us-west-2', credentials: 'aws'){
+                    sh 'kubectl set image deployment/frontend frontend=xia0m/sklearn:latest'
+                    sh 'kubectl rollout status -w deployment/frontend'
                 }
             }
         }
