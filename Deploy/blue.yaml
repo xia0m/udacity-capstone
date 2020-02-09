@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Blue-Deployment
+  name: blue-deploy
   labels:
-    app: Blue-iteration
+    app: blue-iteration
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: Blue-iteration
+      app: blue-iteration
   template:
     metadata:
       labels:
-        app: Blue-iteration
+        app: blue-iteration
     spec:
       containers:
         - name: capstone
